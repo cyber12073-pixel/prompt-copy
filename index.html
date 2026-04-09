@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>프롬프트 복사</title>
+  <title>장보고 경제학교 AI 프롬프트</title>
+
   <style>
     body {
       font-family: Pretendard, Arial, sans-serif;
@@ -22,23 +23,24 @@
     }
 
     h1 {
-      font-size: 26px;
+      font-size: 24px;
       margin-bottom: 20px;
     }
 
-    pre {
+    .prompt-box {
       background: #f1f3f5;
-      padding: 20px;
+      padding: 18px;
       border-radius: 12px;
       text-align: left;
       white-space: pre-wrap;
-      font-size: 15px;
+      font-size: 14px;
+      margin-top: 15px;
     }
 
     button {
-      margin-top: 20px;
-      padding: 16px 24px;
-      font-size: 18px;
+      margin-top: 10px;
+      padding: 14px 20px;
+      font-size: 16px;
       border: none;
       border-radius: 12px;
       background: #ff7a00;
@@ -50,41 +52,77 @@
       background: #ff5500;
     }
 
-    #msg {
-      margin-top: 10px;
-      font-size: 14px;
+    .link-btn {
+      background: #2c7be5;
+      margin-top: 20px;
+    }
+
+    .link-btn:hover {
+      background: #1a5edb;
+    }
+
+    .msg {
+      margin-top: 8px;
+      font-size: 13px;
       color: green;
     }
   </style>
 </head>
+
 <body>
   <div class="card">
-    <h1>📌 광고포스터 프롬프트</h1>
+    <h1>📌 장보고 경제학교 [판매전략] AI 프롬프트 복사하기</h1>
 
-    <pre id="prompt">
+    <!-- 프롬프트 1 -->
+    <div class="prompt-box" id="prompt1">
 우리는 초등학생이고 1페이지 광고포스터 실습을 하고 있어
 상품의 특징은
 1.
 2.
 3.
 특징에 맞는 재미있는 상품 이름이랑 판매원 닉네임 10개를 추천해줘
-    </pre>
+    </div>
+    <button onclick="copyPrompt('prompt1','msg1')">프롬프트 1 복사하기</button>
+    <div id="msg1" class="msg"></div>
 
-    <button onclick="copyPrompt()">👉 프롬프트 복사하기</button>
-    <div id="msg"></div>
+    <!-- 프롬프트 2 -->
+    <div class="prompt-box" id="prompt2">
+우리 상품 이름은 (    )라고 해
+초등학교 학생들이 좋아할만한 짧은 광고문장같은 한줄 소개를 3개만 추천해주고,
+비슷한 제품의 판매가격도 알려줘.
+    </div>
+    <button onclick="copyPrompt('prompt2','msg2')">프롬프트 2 복사하기</button>
+    <div id="msg2" class="msg"></div>
+
+    <!-- 프롬프트 3 -->
+    <div class="prompt-box" id="prompt3">
+우리의 상품을 잘 팔 수 있는 판매전략으로
+묶음상품, 9엔딩 마케팅, 타임세일, 공감마케팅, 사용후기, 덤 증정
+등 6개의 마케팅 전략을 사용하고 싶은데 한줄씩 만들어줄래?
+    </div>
+    <button onclick="copyPrompt('prompt3','msg3')">프롬프트 3 복사하기</button>
+    <div id="msg3" class="msg"></div>
+
+    <!-- 우리아이 AI 바로가기 -->
+    <button class="link-btn" onclick="goWooriAI()">👉 우리아이 AI 바로가기</button>
+
   </div>
 
   <script>
-    async function copyPrompt() {
-      const text = document.getElementById("prompt").innerText;
-      const msg = document.getElementById("msg");
+    async function copyPrompt(promptId, msgId) {
+      const text = document.getElementById(promptId).innerText;
+      const msg = document.getElementById(msgId);
 
       try {
         await navigator.clipboard.writeText(text);
-        msg.innerText = "복사 완료! ChatGPT에 붙여넣기 하세요 👍";
+        msg.innerText = "복사 완료! 👉 '우리아이 AI'에 복사해 주세요 👍";
       } catch (err) {
         msg.innerText = "자동 복사 실패 😢 텍스트를 길게 눌러 복사해주세요.";
       }
+    }
+
+    function goWooriAI() {
+      window.open("https://wooriai.use.go.kr/", "_blank");
     }
   </script>
 </body>
